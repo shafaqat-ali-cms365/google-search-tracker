@@ -43,13 +43,11 @@ namespace Website.Pages
             try
             {
                 var removeSections = new string[] { "script", "style", "header", "footer" };
-                //Keywords = "online title search";
                 int pageCounter = 0;
                 var positionNumbers = new List<int>();
                 while (pageCounter < 100)
                 {
                     string searchURL = $"https://www.google.com.au/search?q={Keywords}&start={pageCounter}";
-                    //URLToSearch = "https://www.infotrack.com.au";
                     string result = String.Empty;
                     using (HttpClient client = new HttpClient())
                     {
@@ -64,7 +62,7 @@ namespace Website.Pages
                         rRemScript = new Regex(@$"<{section}[^>]*>[\s\S]*?</{section}>");
                         body = rRemScript.Replace(body, "");
                     }
-
+                    body = rRemScript.Replace(body, "");
                     body = body.Replace("<hr class=\"BUybKe\">", "");
                     body = body.Replace("&nbsp", "&amp;nbsp;");
                     var xml = XElement.Parse(body);
