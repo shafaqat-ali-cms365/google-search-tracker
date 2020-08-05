@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3"><label asp-for="@Model.Keywords" class="required"></label></div>
+            <div class="col-md-9">
+                <input asp-for="@Model.Keywords" class="form-control" />
+                <span asp-validation-for="@Model.Keywords" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3"><label asp-for="@Model.URLToSearch" class="required"></label></div>
+            <div class="col-md-9">
+                <input asp-for="@Model.URLToSearch" type="url" class="form-control" />
+                <span asp-validation-for="@Model.URLToSearch" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row pt-3"><div class="col-md-12"><label>@Model.Positions</label></div></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-right mt-5 mb-5">
+            <button asp-page-handler="Search" class="btn btn-warning">Search</button>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
