@@ -56,7 +56,7 @@ namespace Website.Pages
         /// <summary>
         /// Method is caleed when search button is clicked
         /// </summary>
-        public void OnPostSearchAsync()
+        public async Task OnPostSearchAsync()
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace Website.Pages
                         string result = String.Empty;
                         using (HttpClient client = new HttpClient())
                         {
-                            result = client.GetStringAsync(searchURL).Result;
+                            result = await client.GetStringAsync(searchURL);
                         }
                         var startIndex = result.IndexOf("<body");
                         var endIndex = result.IndexOf("</body>");
