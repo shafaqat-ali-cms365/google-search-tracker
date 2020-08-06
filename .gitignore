@@ -1,2 +1,7 @@
 Website/obj/
 Website/bin/
+.vs/GoogleSearchTracker/v16/TestStore/
+UnitTests/bin/
+UnitTests/obj/
+Website.Core/obj/
+Website.Core/bin/
